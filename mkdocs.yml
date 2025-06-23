@@ -1,0 +1,33 @@
+# This is a required setting, and should be a string that is used as the main title for the project documentation.
+site_name: Dev Day Journal
+
+# Set the canonical URL of the site. This will add a link tag with the canonical URL to the head section of each HTML page.
+# https://www.mkdocs.org/user-guide/configuration/#site_url
+# site_url:
+#
+# When set, provides a link to your repository (GitHub, Bitbucket, GitLab, ...) on each page.
+# repo_url
+
+site_description: Dev Day Journal 🤔📘
+plugins:
+  - search
+  - markmap
+  - tags:
+      tags_file: tags.md
+  - drawio
+  - plantuml:
+      render: server
+      puml_url: https://www.plantuml.com/plantuml/
+theme:
+  name: material
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences
+  - pymdownx.tasklist:
+      custom_checkbox: true
