@@ -50,3 +50,24 @@ data "aws_ami" "app" {
 Here the data source will find the latest AMI that matches the given filter criteria.
 
 So in summary - data sources can reference Terraform resources, external resources not managed by Terraform, or lookup resources based on criteria like tags or filters. They don't strictly require a Terraform resource reference.
+
+
+### How do you delete a single resource in a module?
+
+```
+terraform state list
+```
+
+
+dynamic zone uses a protocol to do the updates.
+uses an auth key
+
+DNS hierachy
+hostname.appsec.
+hostname.prod.appspec.
+
+zone cut.
+
+
+
+

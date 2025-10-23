@@ -2,10 +2,38 @@
 tags:
   - ssl
   - faq
-title: SSL CA Certs
+title: SSL Certs
 ---
 
+## Primer 
+
+SSL certificates provide 2 distinct functions:
+
+- **Authenticity** - "Who am I connecting to?"
+- **Privacy** - "Is my data private?" i.e. encrypted.
+
+### What is PKI?
+
+Public Key Infrastructure (PKI) is a framework that enables secure communication and authentication over networks using a combination of public and private cryptographic keys. It involves the use of digital certificates, certificate authorities (CAs), and a set of policies and procedures to manage the creation, distribution, and revocation of these certificates.
+
+To break it down further it has the following components:
+
+1.**Certificate Authority (CA)**: A trusted entity that issues digital certificates. CAs verify the identity of entities (individuals, organizations, or devices) before issuing certificates.
+2. **Registration Authority (RA)**: An entity that acts as an intermediary between the user and the CA. The RA is responsible for accepting requests for digital certificates and authenticating the entity making the request.
+3. **Public/Private Key Pair**: Each entity has a pair of cryptographic keys - a public key and a private key. The public key is shared with others, while the private key is kept secret. Data encrypted with the public key can only be decrypted with the corresponding private key, and vice versa.
+4. **Digital Certificates**: These are electronic documents that bind a public key to an entity's identity
+  (e.g., a person or organization). Certificates are issued by CAs and contain information such as the entity's name, public key, expiration date, and the CA's digital signature.
+5. **Certificate Store** - A repository where trusted CA certificates are stored. This store is used by clients to verify the authenticity of digital certificates presented by servers during secure communications.
+
+
 ## FAQ
+
+### How is a certificate validated?
+
+1. The domain name in the URL must match the domain name in the certificate.
+2. The certificate must be within its validity period (not expired).
+3. The certificate must be signed by a trusted Certificate Authority (CA).
+
 
 ### Does the server send the intermediate CA certs in the SSL handshake?
 
@@ -84,4 +112,10 @@ However they serve different purposes.
 
 
 **Encryption**: Use to maintain confidentiality where the client encrypts the data using the server's public key (available to the client) that is then decrypted by the server's private key. 
+
+### What is a Self Signed Certificate?
+
+A self-signed certificate is a digital certificate that is signed by the same entity whose identity it certifies. In other words, the issuer and the subject of the certificate are the same. Self-signed certificates are typically used for testing, development, or internal purposes where trust can be established without relying on a third-party Certificate Authority (CA).
+
+It is worth noting that self-signed certificates do not provide the same level of trust as certificates issued by a trusted CA, as they are not validated by an external authority. As a result, web browsers and other clients may display warnings when encountering self-signed certificates, indicating that the connection may not be secure.
 
