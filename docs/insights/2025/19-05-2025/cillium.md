@@ -34,7 +34,7 @@ spec:
   podSelector: {}
   policyTypes:
   - Egress
-  ```
+```
 
 This looks like it should work except that the `kube-system` namespace does not have that label.
 
